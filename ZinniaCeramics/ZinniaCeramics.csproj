@@ -23,8 +23,52 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="css\justifiedGallery.css" />
+    <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
+    <Content Include="img\1-impression.png" />
+    <Content Include="img\2-impressions.png" />
+    <Content Include="img\4-impressions.png" />
+    <Content Include="img\about-bg.jpg" />
+    <Content Include="img\about-sprite-1.png" />
+    <Content Include="img\about-sprite-2.png" />
+    <Content Include="img\about-sprite-5.png" />
+    <Content Include="img\home-bg-small.jpg" />
+    <Content Include="img\home-bg.jpg" />
+    <Content Include="img\icons\browserconfig.xml" />
+    <Content Include="img\icons\favicon-114.png" />
+    <Content Include="img\icons\favicon-120.png" />
+    <Content Include="img\icons\favicon-144.png" />
+    <Content Include="img\icons\favicon-150.png" />
+    <Content Include="img\icons\favicon-152.png" />
+    <Content Include="img\icons\favicon-16.png" />
+    <Content Include="img\icons\favicon-160.png" />
+    <Content Include="img\icons\favicon-180.png" />
+    <Content Include="img\icons\favicon-192.png" />
+    <Content Include="img\icons\favicon-310.png" />
+    <Content Include="img\icons\favicon-32.png" />
+    <Content Include="img\icons\favicon-57.png" />
+    <Content Include="img\icons\favicon-60.png" />
+    <Content Include="img\icons\favicon-64.png" />
+    <Content Include="img\icons\favicon-70.png" />
+    <Content Include="img\icons\favicon-72.png" />
+    <Content Include="img\icons\favicon-76.png" />
+    <Content Include="img\icons\favicon-96.png" />
+    <Content Include="img\icons\faviconit-instructions.txt" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\services1.jpg" />
+    <Content Include="img\services2.jpg" />
+    <Content Include="img\svg\icons.data.png.css" />
+    <Content Include="img\svg\icons.data.svg.css" />
+    <Content Include="img\svg\icons.fallback.css" />
     <Content Include="index.html" />
+    <Content Include="js\flickrJustifiedGallery.js" />
+    <Content Include="js\jquery.justifiedGallery.js" />
+    <Content Include="js\vendor\jquery-1.9.0.min.js" />
+    <Content Include="js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="js\vendor\skrollr.menu.js" />
+    <Content Include="js\vendor\skrollr.min.js" />
+    <Content Include="js\zinnia.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
