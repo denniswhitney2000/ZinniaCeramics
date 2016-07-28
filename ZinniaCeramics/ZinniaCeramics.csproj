@@ -22,6 +22,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\jquery.bxslider.css" />
     <Content Include="css\justifiedGallery.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
@@ -62,6 +63,7 @@
     <Content Include="img\svg\icons.fallback.css" />
     <Content Include="index.html" />
     <Content Include="js\flickrJustifiedGallery.js" />
+    <Content Include="js\jquery.bxslider.js" />
     <Content Include="js\jquery.justifiedGallery.js" />
     <Content Include="js\vendor\jquery-1.9.0.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2.min.js" />

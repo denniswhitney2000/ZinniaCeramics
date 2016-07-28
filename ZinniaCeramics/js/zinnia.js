@@ -1,4 +1,28 @@
-﻿window.grunticon = function (a) {
+﻿$(window).load(function () {
+    $("#mygallery").flickrJustifiedGallery({
+        flickrApiKey: "e61c12b766d22011982cd051f06a9e30",
+        flickrUserID: "31808274@N07",
+        flickrPerPage: 8,
+
+        justifiedGallerySettings: {
+            rowHeight: 100,
+            target: "_blank",
+            lastRow: 'nojustify',
+            margins: 3,
+
+            sizeRangeSuffixes: {
+                100: '_t', // used with images which are less than 100px on the longest side
+                240: '_m', // used with images which are between 100px and 240px on the longest side
+                320: '_n', // ...
+                500: '',
+                640: '_z',
+                1024: '_b' // used which images that are more than 640px on the longest side
+            }
+        }
+    });
+});
+
+window.grunticon = function (a) {
     if (a && 3 === a.length) {
         var b = window,
         c = !(!b.document.createElementNS || !b.document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect || !document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1') || window.opera && -1 === navigator.userAgent.indexOf('Chrome')),
@@ -19,7 +43,7 @@
         e.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
     }
 },
-grunticon([data_svg_url, 
+grunticon([data_svg_url,
 data_png_url,
 data_fallback_url]),
 !function (a) {
@@ -1664,7 +1688,7 @@ contact = {
                 zoom: 12,
                 center: new google.maps.LatLng(42.280785, -71.236473),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
-                
+
             };
             b = new google.maps.Map(document.getElementById('map-canvas'), a)
         }
@@ -1680,8 +1704,58 @@ contact = {
             event.preventDefault(a)
         })
     }
+},
+
+etsyslider = {
+
+    init: function () {
+        api_key = '9eagsiapj818mhonlg3nr032';
+        etsyURL = 'https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js?includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url&api_key=' + api_key;
+
+        $('#etsyslider').empty();
+
+        $.ajax({
+            type: 'GET',
+            url: etsyURL,
+            async: false,
+            jsonpCallback: 'jsonCallback',
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: function (data) {
+                if (data.ok) {
+                    $('#etsyslider').empty();
+
+                    if (data.count > 0) {
+                        $.each(data.results, function (i, item) {
+                            $("<img/>")
+                                .attr("src", item.Images[0].url_570xN)
+                                .attr("title", item.title + "<span class='etsyprice'>$" + item.price + "</span>")
+                                .appendTo("#etsyslider")
+                                .wrap("<li><a href='" + item.url + "'></a></li>");
+                        });
+                    } else {
+                        $('<p>No results.</p>').appendTo('#etsyslider');
+                    }
+                } else {
+                    $('#etsyslider').empty();
+                    alert("---ERROR---\n" + data.error);
+                }
+            }
+        });
+        return false;
+    },
+
+    start: function () {
+        $('.etsyslider').bxSlider({
+            mode: 'fade',
+            captions: true,
+            slideWidth: 570,
+        });
+    }
 };
 $(function () {
+    etsyslider.init(),
+
     fullpageintro.init(),
     waypointsnav.init(),
     parralax.init(),
@@ -1689,5 +1763,8 @@ $(function () {
     scrolldownindicator.init(),
     scrolldown.init(),
     services.init(),
-    contact.init()
+    contact.init(),
+
+
+    etsyslider.start()
 });
