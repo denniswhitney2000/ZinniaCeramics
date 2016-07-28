@@ -22,7 +22,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.css" />
     <Content Include="css\justifiedGallery.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
@@ -70,9 +69,6 @@
     <Content Include="js\vendor\skrollr.min.js" />
     <Content Include="js\zinnia.js" />
     <Content Include="web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

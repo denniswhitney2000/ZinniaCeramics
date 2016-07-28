@@ -114,7 +114,7 @@ nav { background-color:#000; background-color:rgba(0,0,0,0.8); position:absolute
 nav.fixed { position:fixed; top:0; }
 nav .nav-logo { background-position:center; display:block; line-height:65px; position:absolute; top:0; left:0; width:200px; height:65px; color:white; font-size:2em; }
 nav .nav-wrap { width:960px; margin:0 auto; }
-nav .nav-wrap .nav-contact { background-size:27px; background-position:right center; color:#FFF; display:block; float:right; width:150px; height:65px; line-height:65px; } 
+nav .nav-wrap .nav-contact { background-size:27px; background-position:right center; color:#FFF; display:block; float:right; width:150px; height:65px; line-height:65px; }
 nav .nav-wrap ul { width:500px; margin:0 auto; }
 nav .nav-wrap ul li { float:left; margin:0; }
 nav .nav-wrap ul li a { display:block; text-align:center; text-transform:uppercase; text-decoration:none; line-height:65px; width:100px; height:65px; color:#FFF; -moz-transition:background 200ms ease-in-out; -o-transition:background 200ms ease-in-out; -webkit-transition:background 200ms ease-in-out; transition:background 200ms ease-in-out; }
