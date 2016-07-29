@@ -36,6 +36,8 @@
     <Content Include="img\home-bg-small.jpg" />
     <Content Include="img\home-bg.jpg" />
     <Content Include="img\icons\browserconfig.xml" />
+    <Content Include="img\icons\bx_loader.gif" />
+    <Content Include="img\icons\controls.png" />
     <Content Include="img\icons\favicon-114.png" />
     <Content Include="img\icons\favicon-120.png" />
     <Content Include="img\icons\favicon-144.png" />
@@ -79,6 +81,9 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+    <Content Include="whitneyworks.net.publishsettings" />
+    <None Include="whitneyworks.net - FTP.pubxml" />
+    <None Include="whitneyworks.net - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

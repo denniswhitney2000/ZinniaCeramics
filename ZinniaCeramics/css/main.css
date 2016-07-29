@@ -169,8 +169,8 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #about .about-content .col p { text-align:left; }
 #about .about-sprite { position:absolute; z-index:1; }
 #about .about-sprite.one { top:-100px; left:-3%; }
-#about .about-sprite.two { top:160px; left:0%; }
-#about .about-sprite.three { top:-40px; right:3%; }
+#about .about-sprite.two { top:160px; left:-12%; }
+#about .about-sprite.three { top:-40px; right:-10%; }
 
 #services { background:#dbebf8; /* url("../img/about-bg.jpg") no-repeat center center; */ text-align:center; overflow:hidden; }
 #services:before { content:''; display:inline-block; height:100%; vertical-align:middle; }
@@ -187,6 +187,12 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 
 #shop { background:#CDE422; padding:100px 0; text-align:center; }
 #shop h3 { margin:0 auto; padding:60px 0 70px 0; width:440px; }
+
+
+#shop .etsytitle { float:left; font-size: 200%; }
+#shop .etsyprice { float:right; font-size: 200%; color:blue; }
+
+
 #shop .columns { margin:0 auto; max-width:1280px; }
 #shop .columns .col { width:50%; float:left; }
 #shop .columns .col.content { text-align:left; }

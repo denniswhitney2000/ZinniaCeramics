@@ -1710,7 +1710,10 @@ etsyslider = {
 
     init: function () {
         api_key = '9eagsiapj818mhonlg3nr032';
-        etsyURL = 'https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js?includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url&api_key=' + api_key;
+
+        limit = 5;
+
+        etsyURL = 'https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js?includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url&limit=' + limit + '&api_key=' + api_key;
 
         $('#etsyslider').empty();
 
@@ -1729,7 +1732,7 @@ etsyslider = {
                         $.each(data.results, function (i, item) {
                             $("<img/>")
                                 .attr("src", item.Images[0].url_570xN)
-                                .attr("title", item.title + "<span class='etsyprice'>$" + item.price + "</span>")
+                                .attr("title", "<div class='etsytitle'>" + item.title + "</div><div class='etsyprice'>$" + item.price + "</div>")
                                 .appendTo("#etsyslider")
                                 .wrap("<li><a href='" + item.url + "'></a></li>");
                         });
@@ -1742,20 +1745,10 @@ etsyslider = {
                 }
             }
         });
-        return false;
     },
-
-    start: function () {
-        $('.etsyslider').bxSlider({
-            mode: 'fade',
-            captions: true,
-            slideWidth: 570,
-        });
-    }
 };
-$(function () {
-    etsyslider.init(),
 
+$(function () {
     fullpageintro.init(),
     waypointsnav.init(),
     parralax.init(),
@@ -1763,8 +1756,16 @@ $(function () {
     scrolldownindicator.init(),
     scrolldown.init(),
     services.init(),
-    contact.init(),
+    etsyslider.init(),
+    contact.init()
+});
 
 
-    etsyslider.start()
+$(window).load(function () {
+    $('.etsyslider').bxSlider({
+        mode: 'fade',
+        captions: true,
+        slideWidth: 570,
+        pager: false,
+    });
 });
