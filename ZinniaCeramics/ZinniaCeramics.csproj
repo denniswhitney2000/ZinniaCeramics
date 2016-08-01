@@ -25,13 +25,11 @@
     <Content Include="css\jquery.bxslider.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
-    <Content Include="img\1-impression.png" />
-    <Content Include="img\2-impressions.png" />
-    <Content Include="img\4-impressions.png" />
     <Content Include="img\about-bg.jpg" />
     <Content Include="img\about-sprite-1.png" />
     <Content Include="img\about-sprite-2.png" />
     <Content Include="img\about-sprite-5.png" />
+    <Content Include="img\about-sprite-6.png" />
     <Content Include="img\home-bg-small.jpg" />
     <Content Include="img\home-bg.jpg" />
     <Content Include="img\icons\browserconfig.xml" />
@@ -59,6 +57,7 @@
     <Content Include="img\logo.png" />
     <Content Include="img\services1.jpg" />
     <Content Include="img\services2.jpg" />
+    <Content Include="img\socialicons.png" />
     <Content Include="img\svg\icons.data.png.css" />
     <Content Include="img\svg\icons.data.svg.css" />
     <Content Include="img\svg\icons.fallback.css" />
