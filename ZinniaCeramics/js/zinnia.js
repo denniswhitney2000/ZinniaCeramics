@@ -1,28 +1,4 @@
-﻿$(window).load(function () {
-    $("#mygallery").flickrJustifiedGallery({
-        flickrApiKey: "e61c12b766d22011982cd051f06a9e30",
-        flickrUserID: "31808274@N07",
-        flickrPerPage: 8,
-
-        justifiedGallerySettings: {
-            rowHeight: 100,
-            target: "_blank",
-            lastRow: 'nojustify',
-            margins: 3,
-
-            sizeRangeSuffixes: {
-                100: '_t', // used with images which are less than 100px on the longest side
-                240: '_m', // used with images which are between 100px and 240px on the longest side
-                320: '_n', // ...
-                500: '',
-                640: '_z',
-                1024: '_b' // used which images that are more than 640px on the longest side
-            }
-        }
-    });
-});
-
-window.grunticon = function (a) {
+﻿window.grunticon = function (a) {
     if (a && 3 === a.length) {
         var b = window,
         c = !(!b.document.createElementNS || !b.document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect || !document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1') || window.opera && -1 === navigator.userAgent.indexOf('Chrome')),
@@ -46,6 +22,7 @@ window.grunticon = function (a) {
 grunticon([data_svg_url,
 data_png_url,
 data_fallback_url]),
+
 !function (a) {
     var b = 'data-ab-color',
     c = 'data-ab-parent',
@@ -1706,13 +1683,35 @@ contact = {
     }
 },
 
+flickrgallery = {
+    init: function () {
+
+        user_id = '31808274@N07';
+        flickrURL = 'http://api.flickr.com/services/feeds/photos_public.gne?id=' + user_id + '&lang=en-us&format=json&jsoncallback=?';
+
+        $('#flickrgallery').empty();
+
+
+        $.getJSON(flickrURL, function (data) {
+            $.each(data.items, function (i, item) {
+                // _m = medium img, _b = large; remove the replace function if you want the standard small images
+                //$("<img/>").attr("src", item.media.m.replace("_m", "_b"))
+                $("<img/>")
+                    .attr("src", item.media.m)
+                    .attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
+                    .appendTo("#flickrgallery")
+                    .wrap("<li><a href='" + item.link + "' target='_blank'></a></li>");
+            });
+        });
+    }
+},
+
+
 etsyslider = {
 
     init: function () {
         api_key = '9eagsiapj818mhonlg3nr032';
-
         limit = 5;
-
         etsyURL = 'https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js?includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url&limit=' + limit + '&api_key=' + api_key;
 
         $('#etsyslider').empty();
@@ -1741,6 +1740,7 @@ etsyslider = {
                     }
                 } else {
                     $('#etsyslider').empty();
+                    console.log("---ERROR---\n" + data.error);
                     alert("---ERROR---\n" + data.error);
                 }
             }
@@ -1756,16 +1756,29 @@ $(function () {
     scrolldownindicator.init(),
     scrolldown.init(),
     services.init(),
+    flickrgallery.init(),
     etsyslider.init(),
     contact.init()
 });
 
 
 $(window).load(function () {
+
+    // Initialize the Etsy slider
     $('.etsyslider').bxSlider({
         mode: 'fade',
         captions: true,
         slideWidth: 570,
         pager: false,
+    });
+
+    // Initialize the Flickr gallery
+    $('.flickrgallery').bxSlider({
+        minSlides: 4,
+        maxSlides: 4,
+        slideWidth: 170,
+        slideMargin: 7,
+        ticker: true,
+        speed: 65000
     });
 });

@@ -23,7 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\jquery.bxslider.css" />
-    <Content Include="css\justifiedGallery.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="img\1-impression.png" />
@@ -64,9 +63,7 @@
     <Content Include="img\svg\icons.data.svg.css" />
     <Content Include="img\svg\icons.fallback.css" />
     <Content Include="index.html" />
-    <Content Include="js\flickrJustifiedGallery.js" />
     <Content Include="js\jquery.bxslider.js" />
-    <Content Include="js\jquery.justifiedGallery.js" />
     <Content Include="js\vendor\jquery-1.9.0.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="js\vendor\skrollr.menu.js" />
@@ -85,6 +82,7 @@
     <None Include="whitneyworks.net - FTP.pubxml" />
     <None Include="whitneyworks.net - Web Deploy.pubxml" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>
