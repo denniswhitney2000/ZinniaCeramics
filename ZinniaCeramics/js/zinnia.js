@@ -1565,7 +1565,7 @@ waypointsnav = {
         }, {
             offset: '-1'
         }),
-        $('#gallery, #services').waypoint(function (a) {
+        $('#shop, #services').waypoint(function (a) {
             if ('down' === a) {
                 var b = $(this).attr('id');
                 $('li.menu-item').removeClass('current'),
@@ -1695,9 +1695,8 @@ flickrgallery = {
         $.getJSON(flickrURL, function (data) {
             $.each(data.items, function (i, item) {
                 // _m = medium img, _b = large; remove the replace function if you want the standard small images
-                //$("<img/>").attr("src", item.media.m.replace("_m", "_b"))
-                $("<img/>")
-                    .attr("src", item.media.m)
+                $("<img/>").attr("src", item.media.m.replace("_m", "_b"))
+                //$("<img/>").attr("src", item.media.m)
                     .attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
                     .appendTo("#flickrgallery")
                     .wrap("<li><a href='" + item.link + "' target='_blank'></a></li>");
@@ -1731,7 +1730,7 @@ etsyslider = {
                         $.each(data.results, function (i, item) {
                             $("<img/>")
                                 .attr("src", item.Images[0].url_570xN)
-                                .attr("title", "<div class='etsytitle'>" + item.title + "</div><div class='etsyprice'>$" + item.price + "</div>")
+                                .attr("title", "<div class='etsytitle'>" + item.title.substring(0,41) + "</div><div class='etsyprice'>$" + item.price + "</div>")
                                 .appendTo("#etsyslider")
                                 .wrap("<li><a href='" + item.url + "'></a></li>");
                         });
