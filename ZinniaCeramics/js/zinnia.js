@@ -1729,8 +1729,9 @@ etsyslider = {
                     if (data.count > 0) {
                         $.each(data.results, function (i, item) {
                             $("<img/>")
+                                .attr("class", "etsyimage")
                                 .attr("src", item.Images[0].url_570xN)
-                                .attr("title", "<div class='etsytitle'>" + item.title.substring(0,41) + "</div><div class='etsyprice'>$" + item.price + "</div>")
+                                .attr("title", "<div class='etsytitle'>" + item.title.substring(0,35) + "</div><div class='etsyprice'>$" + item.price + "</div>")
                                 .appendTo("#etsyslider")
                                 .wrap("<li><a href='" + item.url + "'></a></li>");
                         });
@@ -1769,6 +1770,7 @@ $(window).load(function () {
         captions: true,
         slideWidth: 570,
         pager: false,
+        adaptiveHeight: true,
     });
 
     // Initialize the Flickr gallery
