@@ -1565,7 +1565,7 @@ waypointsnav = {
         }, {
             offset: '-1'
         }),
-        $('#shop, #services').waypoint(function (a) {
+        $('#shop, #imprints').waypoint(function (a) {
             if ('down' === a) {
                 var b = $(this).attr('id');
                 $('li.menu-item').removeClass('current'),
@@ -1626,7 +1626,7 @@ scrolldown = {
         $('.scroll-down-btn').smoothScroll({
             offset: 0
         }),
-        $('.services-btn').smoothScroll({
+        $('.imprints-btn').smoothScroll({
             offset: -100
         })
     }
@@ -1652,7 +1652,7 @@ scrolldownindicator = {
         }, 2500)
     }
 },
-services = {
+imprints = {
     init: function () {
         $('.select-service a').click(function () {
         })
@@ -1755,7 +1755,7 @@ $(function () {
     sidenav.init(),
     scrolldownindicator.init(),
     scrolldown.init(),
-    services.init(),
+    imprints.init(),
     flickrgallery.init(),
     etsyslider.init(),
     contact.init()
