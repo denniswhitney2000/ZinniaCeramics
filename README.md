@@ -22,4 +22,4 @@ The home for the Zinnia Ceramics project.
 YOUR API KEY: AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys
 
 # li columns display
-Code blatently stolen from http://rawgit.com/fzondlo/jquery-columns/master/jquery-columns-plugin.js
+http://stackoverflow.com/questions/14745297/how-to-display-an-unordered-list-in-two-columns
