@@ -21,3 +21,5 @@ The home for the Zinnia Ceramics project.
 # Google API information
 YOUR API KEY: AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys
 
+# li columns display
+Code blatently stolen from http://rawgit.com/fzondlo/jquery-columns/master/jquery-columns-plugin.js
