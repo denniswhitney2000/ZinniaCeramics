@@ -1658,7 +1658,35 @@ imprints = {
         })
     }
 },
-contact = {
+
+
+maps = {
+
+    init: function () {
+
+        var mapkey = "AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys";
+        var locations = maps.getlocations();
+        var bgurl = "https://maps.googleapis.com/maps/api/staticmap?center=" + locations[0][0] + "," + locations[0][1] + "&zoom=12&maptype=roadmap&size=640x400&key=" + mapkey;
+
+        $("#mapcanvas").attr("style", "background:url('" + bgurl + "'); background-repeat:no-repeat; background-size:100% 100%;");
+
+    },
+
+    getlocations: function () {
+        var latlon = [];
+        var locations = document.getElementById('locations');
+        var locationList = locations.querySelectorAll('li');
+        for (var i = 0; i < locationList.length; ++i) {
+            latlon.push( locationList[i].getAttribute('data-latlon').split(",") );
+        }
+        return latlon;
+    }
+},
+
+
+/*
+ *
+ * contact = {
     init: function () {
         function a() {
             var a = {
@@ -1682,6 +1710,8 @@ contact = {
         })
     }
 },
+ *
+ */
 
 flickrgallery = {
     init: function () {
@@ -1695,7 +1725,7 @@ flickrgallery = {
         $.getJSON(flickrURL, function (data) {
             $.each(data.items, function (i, item) {
                 // _m = medium img, _b = large; remove the replace function if you want the standard small images
-                $("<img/>").attr("src", item.media.m.replace("_m", "_b"))
+                $("<img/>").attr("src", item.media.m.replace("_m", "_z"))
                 //$("<img/>").attr("src", item.media.m)
                     .attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
                     .appendTo("#flickrgallery")
@@ -1703,6 +1733,7 @@ flickrgallery = {
             });
         });
     }
+    // TODO: Add flickr size matrix and src update
 },
 
 
@@ -1758,7 +1789,8 @@ $(function () {
     imprints.init(),
     flickrgallery.init(),
     etsyslider.init(),
-    contact.init()
+    //contact.init()
+    maps.init()
 });
 
 
