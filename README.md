@@ -17,3 +17,7 @@ The home for the Zinnia Ceramics project.
 - Medium 800:> width="800" height="600" _c
 - Large:> width="1024" height="768" _b
 - Original:> width="2400" height="1800" _o
+
+# Google API information
+YOUR API KEY: AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys
+
