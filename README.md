@@ -18,8 +18,11 @@ The home for the Zinnia Ceramics project.
 - Large:> width="1024" height="768" _b
 - Original:> width="2400" height="1800" _o
 
-# Google API information
+# Google Static Map API information
 YOUR API KEY: AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys
+
+# Google Maps JavaScript API!
+YOUR API KEY: AIzaSyCvXkK7zEDCCDvBSzK5n3eqWdPvHYkhvDQ 
 
 # li columns display
 http://stackoverflow.com/questions/14745297/how-to-display-an-unordered-list-in-two-columns
