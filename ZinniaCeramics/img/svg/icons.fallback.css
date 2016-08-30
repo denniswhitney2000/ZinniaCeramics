@@ -6,6 +6,13 @@
 
 .icon-contact-phone { background-image: url(png/contact-phone.png); background-repeat: no-repeat; }
 
+.icon-menu-trigger { background-image: url(png/menu-trigger.png); background-repeat: no-repeat; }
+
+.icon-telephone-small { background-image: url(png/telephone-small.png); background-repeat: no-repeat; }
+
+
+
+/*
 .icon-E8B27866F11A6F89 { background-image: url(png/E8B27866F11A6F89.png); background-repeat: no-repeat; }
 
 .icon-E8B27866F11A6F8A { background-image: url(png/E8B27866F11A6F8A.png); background-repeat: no-repeat; }
@@ -19,8 +26,6 @@
 .icon-logo-thumb-white { background-image: url(png/logo-thumb-white.png); background-repeat: no-repeat; }
 
 .icon-logo-white { background-image: url(png/logo-white.png); background-repeat: no-repeat; }
-
-.icon-menu-trigger { background-image: url(png/menu-trigger.png); background-repeat: no-repeat; }
 
 .icon-process-admin { background-image: url(png/process-admin.png); background-repeat: no-repeat; }
 
@@ -57,5 +62,4 @@
 .icon-imprints-shipment { background-image: url(png/imprints-shipment.png); background-repeat: no-repeat; }
 
 .icon-imprints-tech { background-image: url(png/imprints-tech.png); background-repeat: no-repeat; }
-
-.icon-telephone-small { background-image: url(png/telephone-small.png); background-repeat: no-repeat; }
+*/

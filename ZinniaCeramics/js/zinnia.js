@@ -153,6 +153,7 @@ data_fallback_url]),
         }
     }
 }(jQuery),
+
 function (a) {
     function b(a) {
         return a.replace(/(:|\.)/g, '\\$1')
@@ -294,6 +295,7 @@ function (a) {
     },
     a.fn.smoothScroll.defaults = e
 }(jQuery),
+
 function (a, b) {
     'use strict';
     var c = 500,
@@ -1532,6 +1534,7 @@ function () {
         })
     })
 }.call(this);
+
 var fullpageintro = {
     init: function () {
         function a() {
@@ -1659,59 +1662,82 @@ imprints = {
     }
 },
 
+locations = {
 
-maps = {
-
-    init: function () {
-
-        var mapkey = "AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys";
-        var locations = maps.getlocations();
-        var bgurl = "https://maps.googleapis.com/maps/api/staticmap?center=" + locations[0][0] + "," + locations[0][1] + "&zoom=12&maptype=roadmap&size=640x400&key=" + mapkey;
-
-        $("#mapcanvas").attr("style", "background:url('" + bgurl + "'); background-repeat:no-repeat; background-size:100% 100%;");
-
+    config: function (loc) {
+        var a = {
+            zoom: 12,
+            center: new google.maps.LatLng(loc[0], loc[1]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var b = new google.maps.Map(document.getElementById('map-canvas'), a)
     },
 
-    getlocations: function () {
-        var latlon = [];
-        var locations = document.getElementById('locations');
-        var locationList = locations.querySelectorAll('li');
-        for (var i = 0; i < locationList.length; ++i) {
-            latlon.push( locationList[i].getAttribute('data-latlon').split(",") );
-        }
-        return latlon;
-    }
-},
-
-
-/*
- *
- * contact = {
     init: function () {
-        function a() {
-            var a = {
-                zoom: 12,
-                center: new google.maps.LatLng(42.280785, -71.236473),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+        var loc = locations.getfirstlocation()
 
-            };
-            b = new google.maps.Map(document.getElementById('map-canvas'), a)
-        }
         if (!/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent || navigator.vendor || window.opera)) {
-            var b;
-            google.maps.event.addDomListener(window, 'load', a)
+            google.maps.event.addDomListener(window, 'load', locations.config(loc))
         }
-        $('a.location').hover(function () {
-            $('.overlay').toggleClass('fade'),
-            $('.overlay').parent().toggleClass('fade-parent')
-        }),
+
+        $('a.location').hover(locations.on, locations.off),
+
         $('a.location').click(function (a) {
             event.preventDefault(a)
         })
+    },
+
+    getfirstlocation: function () {
+        var l = [];
+        var ls = document.getElementById('locations');
+        var ll = ls.querySelectorAll('li');
+        if (ll[0].getAttribute('data-latlon') != null) {
+            l = ll[0].getAttribute('data-latlon').split(",");
+        }
+        return l;
+    },
+
+    on: function () {
+        $('.overlay').toggleClass('fade');
+        $('.overlay').parent().toggleClass('fade-parent');
+
+        // Hide the other locations
+        //var id = $(this).parent().attr("id");
+        //locations.styler(id, 'opacity', '0.1');
+
+        // Get the current map for display
+        var loc = $(this).parent().attr("data-latlon").split(",");
+        if (!/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent || navigator.vendor || window.opera)) {
+            google.maps.event.addDomListener(window, 'load', locations.config(loc))
+        }
+    },
+
+    off: function () {
+        $('.overlay').parent().toggleClass('fade-parent')
+        $('.overlay').toggleClass('fade');
+
+        // Hide the other locations
+        //var id = $(this).parent().attr("id");
+        //locations.styler(id, 'opacity', '1');
+    },
+
+/*
+    styler: function (id, key, value) {
+        var list = $('#locations');
+        var listItems = list.find('li');
+        var i = 0;
+
+        $(listItems).each(function () {
+            //console.log("id #" + i++ + ":>" + this.id + " =!= " + id);
+            if (id != this.id) {
+                $(this).toggleClass('fade'); //     .css( {key, value} );
+                //$(this).css({ key:value });
+            }
+        });
     }
+*/
 },
- *
- */
+
 
 flickrgallery = {
     init: function () {
@@ -1735,8 +1761,6 @@ flickrgallery = {
     }
     // TODO: Add flickr size matrix and src update
 },
-
-
 etsyslider = {
 
     init: function () {
@@ -1762,7 +1786,7 @@ etsyslider = {
                             $("<img/>")
                                 .attr("class", "etsyimage")
                                 .attr("src", item.Images[0].url_570xN)
-                                .attr("title", "<div class='etsytitle'>" + item.title.substring(0,35) + "</div><div class='etsyprice'>$" + item.price + "</div>")
+                                .attr("title", "<div class='etsytitle'>" + item.title.substring(0, 35) + "</div><div class='etsyprice'>$" + item.price + "</div>")
                                 .appendTo("#etsyslider")
                                 .wrap("<li><a href='" + item.url + "'></a></li>");
                         });
@@ -1786,13 +1810,11 @@ $(function () {
     sidenav.init(),
     scrolldownindicator.init(),
     scrolldown.init(),
-    imprints.init(),
+    //imprints.init(),
     flickrgallery.init(),
     etsyslider.init(),
-    //contact.init()
-    maps.init()
+    locations.init();
 });
-
 
 $(window).load(function () {
 
@@ -1814,4 +1836,40 @@ $(window).load(function () {
         ticker: true,
         speed: 65000
     });
+});
+
+$("#locationsort").click(function () {
+
+    if (geoPosition.init()) {
+        geoPosition.getCurrentPosition(geoSuccess, geoError);
+    }
+
+    function geoSuccess(p) {
+        // Grab current position
+        var latlon = new LatLon(p.coords.latitude, p.coords.longitude);
+
+        var locations = document.getElementById('locations');
+        var locationList = locations.querySelectorAll('li');
+        var locationArray = Array.prototype.slice.call(locationList, 0);
+
+        locationArray.sort(function (a, b) {
+            var locA = a.getAttribute('data-latlon').split(',');
+            var locB = b.getAttribute('data-latlon').split(',');
+
+            distA = latlon.distanceTo(new LatLon(Number(locA[0]), Number(locA[1])));
+            distB = latlon.distanceTo(new LatLon(Number(locB[0]), Number(locB[1])));
+            return distA - distB;
+        });
+
+        //Reorder the list
+        locations.innerHTML = "";
+        locationArray.forEach(function (el) {
+            locations.appendChild(el);
+        });
+    }
+
+    function geoError() {
+        alert("Could not find you!");
+    }
+
 });

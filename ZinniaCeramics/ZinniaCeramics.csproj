@@ -63,12 +63,15 @@
     <Content Include="img\svg\icons.data.svg.css" />
     <Content Include="img\svg\icons.fallback.css" />
     <Content Include="index.html" />
+    <Content Include="js\geoPosition.js" />
     <Content Include="js\jquery.bxslider.js" />
+    <Content Include="js\latLon.js" />
     <Content Include="js\vendor\jquery-1.9.0.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="js\vendor\skrollr.menu.js" />
     <Content Include="js\vendor\skrollr.min.js" />
     <Content Include="js\zinnia.js" />
+    <Content Include="test.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
