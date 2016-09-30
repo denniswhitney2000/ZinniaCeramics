@@ -26,10 +26,9 @@
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="img\about-bg.jpg" />
-    <Content Include="img\about-sprite-1.png" />
     <Content Include="img\about-sprite-2.png" />
-    <Content Include="img\about-sprite-5.png" />
-    <Content Include="img\about-sprite-6.png" />
+    <Content Include="img\about-sprite-3.png" />
+    <Content Include="img\bg-image.gif" />
     <Content Include="img\home-bg-small.jpg" />
     <Content Include="img\home-bg.jpg" />
     <Content Include="img\icons\browserconfig.xml" />

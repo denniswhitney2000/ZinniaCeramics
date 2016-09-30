@@ -1655,12 +1655,6 @@ scrolldownindicator = {
         }, 2500)
     }
 },
-imprints = {
-    init: function () {
-        $('.select-service a').click(function () {
-        })
-    }
-},
 
 locations = {
 
@@ -1740,32 +1734,91 @@ locations = {
 
 
 flickrgallery = {
-    init: function () {
 
+    config: function () {
+
+        var sixthirty = {
+            minSlides: 2,
+            maxSlides: 1,
+            slideWidth: 500,
+            slideMargin: 7,
+            ticker: true,
+            speed: 65000
+        };
+
+        var sevensixtyseven = {
+            minSlides: 2,
+            maxSlides: 3,
+            slideWidth: 250,
+            slideMargin: 7,
+            ticker: true,
+            speed: 65000
+        };
+
+        var max = {
+            minSlides: 4,
+            maxSlides: 4,
+            slideWidth: 170,
+            slideMargin: 7,
+            ticker: true,
+            speed: 65000
+        };
+
+        var width = $(window).width();
+
+        // Debug element
+        //document.getElementById("fW").innerHTML = width;
+
+        if (width <= 630) return sixthirty
+        else if (width <= 767) return sevensixtyseven
+        else return max;
+
+    },
+
+    init: function () {
         user_id = '31808274@N07';
         flickrURL = 'http://api.flickr.com/services/feeds/photos_public.gne?id=' + user_id + '&lang=en-us&format=json&jsoncallback=?';
-
         $('#flickrgallery').empty();
-
-
         $.getJSON(flickrURL, function (data) {
             $.each(data.items, function (i, item) {
                 // _m = medium img, _b = large; remove the replace function if you want the standard small images
                 $("<img/>").attr("src", item.media.m.replace("_m", "_z"))
-                //$("<img/>").attr("src", item.media.m)
                     .attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
                     .appendTo("#flickrgallery")
                     .wrap("<li><a href='" + item.link + "' target='_blank'></a></li>");
             });
         });
+    },
+
+    start: function () {
+        var fg = $('.flickrgallery').bxSlider(flickrgallery.config()); // Initialize the Flickr ticker gallery
+        $('#fgwrapper').removeClass("hideme"); // Turn on the gallery
+        return fg;
     }
+
     // TODO: Add flickr size matrix and src update
 },
 etsyslider = {
 
+    config: function () {
+        var max = {
+            mode: 'fade',
+            captions: true,
+            slideWidth: 570,
+            pager: false,
+            adaptiveHeight: true,
+            preloadImages: 'all'
+        };
+
+        var width = $(window).width();
+        // Debug statement
+        //document.getElementById("eW").innerHTML = width;
+        return max;
+    },
+
     init: function () {
         api_key = '9eagsiapj818mhonlg3nr032';
-        limit = 5;
+        limit = 2;
         etsyURL = 'https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js?includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url&limit=' + limit + '&api_key=' + api_key;
 
         $('#etsyslider').empty();
@@ -1801,6 +1854,13 @@ etsyslider = {
             }
         });
     },
+
+    start: function () {
+        var es = $('.etsyslider').bxSlider(etsyslider.config()); // Initialize the Etsy Slider
+        $('#eswrapper').removeClass("hideme"); // Turn on the slider
+        return es;
+    }
+
 };
 
 $(function () {
@@ -1810,7 +1870,6 @@ $(function () {
     sidenav.init(),
     scrolldownindicator.init(),
     scrolldown.init(),
-    //imprints.init(),
     flickrgallery.init(),
     etsyslider.init(),
     locations.init();
@@ -1818,24 +1877,15 @@ $(function () {
 
 $(window).load(function () {
 
-    // Initialize the Etsy slider
-    $('.etsyslider').bxSlider({
-        mode: 'fade',
-        captions: true,
-        slideWidth: 570,
-        pager: false,
-        adaptiveHeight: true,
+    var fg = flickrgallery.start();
+    var es = etsyslider.start();
+
+    // Add resize event
+    $(window).resize(function () {
+        fg.reloadSlider(flickrgallery.config())
+        es.reloadSlider(etsyslider.config())
     });
 
-    // Initialize the Flickr gallery
-    $('.flickrgallery').bxSlider({
-        minSlides: 4,
-        maxSlides: 4,
-        slideWidth: 170,
-        slideMargin: 7,
-        ticker: true,
-        speed: 65000
-    });
 });
 
 $("#locationsort").click(function () {
