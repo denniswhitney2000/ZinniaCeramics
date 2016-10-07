@@ -1800,41 +1800,34 @@ flickrgallery = {
 },
 etsyslider = {
 
-    config: function () {
-        var max = {
-            mode: 'fade',
-            captions: true,
-            slideWidth: 570,
-            pager: false,
-            adaptiveHeight: true,
-            preloadImages: 'all'
-        };
+    api_key: '9eagsiapj818mhonlg3nr032',
 
-        var width = $(window).width();
-        // Debug statement
-        //document.getElementById("eW").innerHTML = width;
-        return max;
-    },
+    offset: 0,
 
-    init: function () {
-        api_key = '9eagsiapj818mhonlg3nr032';
-        limit = 2;
-        etsyURL = 'https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js?includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url&limit=' + limit + '&api_key=' + api_key;
+    begin: 2,
 
-        $('#etsyslider').empty();
+    chunk: 5,
 
+    count: null,
+
+    url: "https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js",
+
+    query: "includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url",
+
+    getdata: function (l,o) {
         $.ajax({
             type: 'GET',
-            url: etsyURL,
+            url: etsyslider.url,
+            data: etsyslider.query + "&offset=" + o + "&limit=" + l + "&api_key=" + etsyslider.api_key,
             async: false,
             jsonpCallback: 'jsonCallback',
             contentType: "application/json",
             dataType: 'jsonp',
             success: function (data) {
                 if (data.ok) {
-                    $('#etsyslider').empty();
-
                     if (data.count > 0) {
+                        // Save the batch count
+                        etsyslider.count = data.pagination.next_offset;
                         $.each(data.results, function (i, item) {
                             $("<img/>")
                                 .attr("class", "etsyimage")
@@ -1855,11 +1848,53 @@ etsyslider = {
         });
     },
 
-    start: function () {
-        var es = $('.etsyslider').bxSlider(etsyslider.config()); // Initialize the Etsy Slider
-        $('#eswrapper').removeClass("hideme"); // Turn on the slider
-        return es;
+    config: function ( start ) {
+        var max = {
+            mode: 'fade',
+            captions: true,
+            slideWidth: 570,
+            pager: false,
+            adaptiveHeight: true,
+            preloadImages: 'all',
+            onSliderLoad: function (currentIndex) {
+                $('#escount .current-index').text(currentIndex + 1);
+            },
+            onSlideAfter: function ($es, oldIndex, newIndex) {
+                if (newIndex + 1 == etsyslider.count) {
+                    etsyslider.getdata(etsyslider.chunk, newIndex + 1);
+                    var es = $('.etsyslider').bxSlider(etsyslider.config());
+                    es.reloadSlider(etsyslider.config(newIndex))
+                }
+            }
+        };
+
+        max.startSlide = (start == null) ? 0 : start;
+
+        // Debug statement
+        //var width = $(window).width();
+        //document.getElementById("eW").innerHTML = width;
+
+        $('#escount .current-index').text("Current slide #:" + (newIndex + 1) );
+
+        //+ " | " + etsyslider.count
+
+        return max;
+    },
+
+    init: function () {
+        $('#etsyslider').empty();
+        etsyslider.getdata(etsyslider.begin, etsyslider.offset);
     }
+
+//    ,
+//
+//   start: function () {
+//        // Initialize the Etsy Slider
+//        var es = $('.etsyslider').bxSlider(etsyslider.config());
+//        $('.etsyslider').removeClass("hideme"); // Turn on the slider
+//        es.reloadSlider(etsyslider.config())
+//        return es;
+//    }
 
 };
 
@@ -1877,8 +1912,19 @@ $(function () {
 
 $(window).load(function () {
 
+    // Start the flickr gallery
     var fg = flickrgallery.start();
-    var es = etsyslider.start();
+
+    // Debug
+    $('#escount').prepend('<strong class="current-index"></strong>/');
+
+    //var es = etsyslider.start();
+
+    // Initialize the Etsy Slider
+    var es = $('.etsyslider').bxSlider(etsyslider.config());
+    $('.etsyslider').removeClass("hideme"); // Turn on the slider
+    es.reloadSlider(etsyslider.config())
+
 
     // Add resize event
     $(window).resize(function () {

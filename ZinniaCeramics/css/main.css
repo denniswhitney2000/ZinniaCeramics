@@ -187,6 +187,7 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #imprints .imprints-content { margin:70px auto; width:600px; position:relative; z-index:2; }
 #imprints .imprints-content h2 { padding-bottom:30px; }
 #imprints .imprints-content h3 { margin:0 auto; width:100%; }
+#imprints .imprints-content h4 { margin:0 auto; width:100%; display:inline-block }
 #imprints .imprints-content ul { text-align: left; }
 #imprints .imprints-content li { margin-left:10px; width:80%; }
 #imprints .imprints-content #fgwrapper { height:100px }
@@ -207,16 +208,15 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #shop .shop-content h2 { padding-bottom:30px; }
 #shop .shop-content h3 { margin:0 auto; padding-top:40px; width:440px; }
 #shop .shop-content p { margin-top:30px; margin-bottom:30px;  }
-#shop .shop-content #fgwrapper { height:560px }
-#shop .shop-content .hideme { visibility:hidden }
+#shop .shop-content #eswrapper { height:380px }
+#shop .shop-content .hideme { display:none }
 #shop .shop-content .col { float:left; width:600px; }
 #shop .shop-content .etsytitle { float:left; font-size: 150%; }
-#shop .shop-content .etsyprice { float:right; font-size: 150%; color:blue; }
+#shop .shop-content .etsyprice { float:right; font-size: 150%; color:green; }
 #shop .shop-sprite { position:absolute; z-index:1; font-family:Papyrus,fantasy; font-size:16px; font-style:normal; font-variant:normal; font-weight:500; line-height:20px; }
 #shop .shop-sprite.one { top:5%; right:3%; width:150px; }
 #shop .shop-sprite.two { top:35%; right:3%; width:150px; }
 #shop .shop-sprite.three { top:70%; right:3%; width:150px; }
-
 
 #location { height:500px; background:#FFF; text-align:center; }
 #location .location-buttons { position:relative; width:100%; }
