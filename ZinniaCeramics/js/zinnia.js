@@ -23,6 +23,8 @@ grunticon([data_svg_url,
 data_png_url,
 data_fallback_url]),
 
+
+<!--
 !function (a) {
     var b = 'data-ab-color',
     c = 'data-ab-parent',
@@ -153,7 +155,9 @@ data_fallback_url]),
         }
     }
 }(jQuery),
+-->
 
+<!--
 function (a) {
     function b(a) {
         return a.replace(/(:|\.)/g, '\\$1')
@@ -295,6 +299,8 @@ function (a) {
     },
     a.fn.smoothScroll.defaults = e
 }(jQuery),
+-->
+
 
 function (a, b) {
     'use strict';
@@ -1709,27 +1715,7 @@ locations = {
     off: function () {
         $('.overlay').parent().toggleClass('fade-parent')
         $('.overlay').toggleClass('fade');
-
-        // Hide the other locations
-        //var id = $(this).parent().attr("id");
-        //locations.styler(id, 'opacity', '1');
     },
-
-/*
-    styler: function (id, key, value) {
-        var list = $('#locations');
-        var listItems = list.find('li');
-        var i = 0;
-
-        $(listItems).each(function () {
-            //console.log("id #" + i++ + ":>" + this.id + " =!= " + id);
-            if (id != this.id) {
-                $(this).toggleClass('fade'); //     .css( {key, value} );
-                //$(this).css({ key:value });
-            }
-        });
-    }
-*/
 },
 
 
@@ -1798,6 +1784,8 @@ flickrgallery = {
 
     // TODO: Add flickr size matrix and src update
 },
+
+
 etsyslider = {
 
     api_key: '9eagsiapj818mhonlg3nr032',
@@ -1808,7 +1796,7 @@ etsyslider = {
 
     chunk: 5,
 
-    count: null,
+    count: 0,
 
     url: "https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js",
 
@@ -1818,7 +1806,7 @@ etsyslider = {
         $.ajax({
             type: 'GET',
             url: etsyslider.url,
-            data: etsyslider.query + "&offset=" + o + "&limit=" + l + "&api_key=" + etsyslider.api_key,
+            data: etsyslider.query + "&api_key=" + etsyslider.api_key + "&offset=" + o + "&limit=" + l,
             async: false,
             jsonpCallback: 'jsonCallback',
             contentType: "application/json",
@@ -1826,8 +1814,11 @@ etsyslider = {
             success: function (data) {
                 if (data.ok) {
                     if (data.count > 0) {
+
                         // Save the batch count
-                        etsyslider.count = data.pagination.next_offset;
+                        etsyslider.count += l;
+
+                        // Append info to the etsyslider
                         $.each(data.results, function (i, item) {
                             $("<img/>")
                                 .attr("class", "etsyimage")
@@ -1836,6 +1827,16 @@ etsyslider = {
                                 .appendTo("#etsyslider")
                                 .wrap("<li><a href='" + item.url + "'></a></li>");
                         });
+
+                        // generate bxslider
+                        if ( es == null ) {
+                            es = $('.etsyslider').bxSlider(etsyslider.config(o));
+                        }
+                        // Or reload it
+                        else {
+                            es.reloadSlider(etsyslider.config(o))
+                        }
+
                     } else {
                         $('<p>No results.</p>').appendTo('#etsyslider');
                     }
@@ -1856,45 +1857,30 @@ etsyslider = {
             pager: false,
             adaptiveHeight: true,
             preloadImages: 'all',
+
+            startSlide: (start == null) ? 0 : start,
+
             onSliderLoad: function (currentIndex) {
                 $('#escount .current-index').text(currentIndex + 1);
             },
             onSlideAfter: function ($es, oldIndex, newIndex) {
-                if (newIndex + 1 == etsyslider.count) {
-                    etsyslider.getdata(etsyslider.chunk, newIndex + 1);
-                    var es = $('.etsyslider').bxSlider(etsyslider.config());
-                    es.reloadSlider(etsyslider.config(newIndex))
+                var offset = newIndex + 1;
+                if (offset == etsyslider.count) {
+                    etsyslider.getdata(etsyslider.chunk, offset);
                 }
             }
         };
-
-        max.startSlide = (start == null) ? 0 : start;
 
         // Debug statement
         //var width = $(window).width();
         //document.getElementById("eW").innerHTML = width;
 
-        $('#escount .current-index').text("Current slide #:" + (newIndex + 1) );
-
-        //+ " | " + etsyslider.count
-
         return max;
     },
 
     init: function () {
-        $('#etsyslider').empty();
-        etsyslider.getdata(etsyslider.begin, etsyslider.offset);
+        $('.etsyslider').empty();
     }
-
-//    ,
-//
-//   start: function () {
-//        // Initialize the Etsy Slider
-//        var es = $('.etsyslider').bxSlider(etsyslider.config());
-//        $('.etsyslider').removeClass("hideme"); // Turn on the slider
-//        es.reloadSlider(etsyslider.config())
-//        return es;
-//    }
 
 };
 
@@ -1910,26 +1896,25 @@ $(function () {
     locations.init();
 });
 
+
+var es;
+
 $(window).load(function () {
 
     // Start the flickr gallery
     var fg = flickrgallery.start();
 
-    // Debug
-    $('#escount').prepend('<strong class="current-index"></strong>/');
-
-    //var es = etsyslider.start();
 
     // Initialize the Etsy Slider
-    var es = $('.etsyslider').bxSlider(etsyslider.config());
-    $('.etsyslider').removeClass("hideme"); // Turn on the slider
-    es.reloadSlider(etsyslider.config())
+    etsyslider.getdata(etsyslider.begin, etsyslider.offset);
 
+    // Turn on the slider
+    $('.etsyslider').removeClass("hideme");
 
     // Add resize event
     $(window).resize(function () {
         fg.reloadSlider(flickrgallery.config())
-        es.reloadSlider(etsyslider.config())
+        //es.reloadSlider(etsyslider.config())
     });
 
 });
