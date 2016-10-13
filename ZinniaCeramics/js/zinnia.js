@@ -1830,11 +1830,11 @@ etsyslider = {
 
                         // generate bxslider
                         if ( es == null ) {
-                            es = $('.etsyslider').bxSlider(etsyslider.config(o));
+                            es = $('.etsyslider').bxSlider(etsyslider.config());
                         }
                         // Or reload it
                         else {
-                            es.reloadSlider(etsyslider.config(o))
+                            es.reloadSlider(etsyslider.config())
                         }
 
                     } else {
@@ -1849,7 +1849,10 @@ etsyslider = {
         });
     },
 
-    config: function ( start ) {
+    config: function () {
+
+        var start = (es == null) ? 0 : es.getCurrentSlide();
+
         var max = {
             mode: 'fade',
             captions: true,
@@ -1857,12 +1860,7 @@ etsyslider = {
             pager: false,
             adaptiveHeight: true,
             preloadImages: 'all',
-
-            startSlide: (start == null) ? 0 : start,
-
-            onSliderLoad: function (currentIndex) {
-                $('#escount .current-index').text(currentIndex + 1);
-            },
+            startSlide: start,
             onSlideAfter: function ($es, oldIndex, newIndex) {
                 var offset = newIndex + 1;
                 if (offset == etsyslider.count) {

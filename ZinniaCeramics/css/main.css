@@ -198,13 +198,13 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #imprints .imprints-content .col.omega { float:left; padding-left:20px; width:50%; }
 #imprints .imprints-content .col p { text-align:left; padding-bottom:20px; }
 #imprints .imprints-sprite { position:absolute; z-index:1; font-family:Papyrus,fantasy; font-size:16px; font-style:normal; font-variant:normal; font-weight:500; line-height:20px; }
-#imprints .imprints-sprite.one { top:10%; left:3%; width:150px; }
-#imprints .imprints-sprite.two { top:37%; left:3%; width:150px; }
-#imprints .imprints-sprite.three { top:65%; left:3%; width:150px; }
+#imprints .imprints-sprite.one { top:15%; left:3%; width:150px; }
+#imprints .imprints-sprite.two { top:50%; left:3%; width:150px; }
+#imprints .imprints-sprite.three { bottom:15%; left:3%; width:150px; }
 
 #shop { background:#FFF; padding:50px 0 auto auto; text-align:center; }
-#about:before { content:''; display:inline-block; height:100%; vertical-align:middle; }
-#shop .shop-content { margin:70px auto; width:600px; position:relative; z-index:2; }
+#shop:before { content:''; display:inline-block; height:100%; vertical-align:middle; }
+#shop .shop-content { margin:70px auto; width:600px; height:650px; position:relative; z-index:2; }
 #shop .shop-content h2 { padding-bottom:30px; }
 #shop .shop-content h3 { margin:0 auto; padding-top:40px; width:440px; }
 #shop .shop-content p { margin-top:30px; margin-bottom:30px;  }
@@ -251,6 +251,7 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #contact.fade-parent .contact-buttons a { opacity:0.1; }
 #contact.fade-parent .contact-buttons p { opacity:0.1 !important; }
 #contact.fade-parent .location,#contact.fade-parent .contact-buttons p { opacity:1 !important; }
+
 #contact #map-canvas { position:absolute; top:0; right:0; bottom:0; left:0; }
 #contact .sprite { background-image: url(../img/socialicons.png); background-repeat: no-repeat; display: block; margin-left: auto; margin-right: auto; }
 #contact .sprite-etsy { width: 96px; height: 96px; background-position: -1px -1px; }
