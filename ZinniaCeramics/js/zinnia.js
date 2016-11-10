@@ -23,8 +23,6 @@ grunticon([data_svg_url,
 data_png_url,
 data_fallback_url]),
 
-
-<!--
 !function (a) {
     var b = 'data-ab-color',
     c = 'data-ab-parent',
@@ -155,9 +153,7 @@ data_fallback_url]),
         }
     }
 }(jQuery),
--->
 
-<!--
 function (a) {
     function b(a) {
         return a.replace(/(:|\.)/g, '\\$1')
@@ -299,8 +295,6 @@ function (a) {
     },
     a.fn.smoothScroll.defaults = e
 }(jQuery),
--->
-
 
 function (a, b) {
     'use strict';
@@ -1541,6 +1535,9 @@ function () {
     })
 }.call(this);
 
+
+
+
 var fullpageintro = {
     init: function () {
         function a() {
@@ -1724,28 +1721,28 @@ flickrgallery = {
     config: function () {
 
         var sixthirty = {
-            minSlides: 2,
+            minSlides: 1,
             maxSlides: 1,
-            slideWidth: 500,
-            slideMargin: 7,
+            slideWidth: 240,
+            slideMargin: 2,
             ticker: true,
-            speed: 65000
+            speed: 85000
         };
 
         var sevensixtyseven = {
             minSlides: 2,
             maxSlides: 3,
-            slideWidth: 250,
-            slideMargin: 7,
+            slideWidth: 240,
+            slideMargin: 5,
             ticker: true,
             speed: 65000
         };
 
         var max = {
-            minSlides: 4,
-            maxSlides: 4,
-            slideWidth: 170,
-            slideMargin: 7,
+            minSlides: 2,
+            maxSlides: 3,
+            slideWidth: 240,
+            slideMargin: 5,
             ticker: true,
             speed: 65000
         };
@@ -1753,7 +1750,7 @@ flickrgallery = {
         var width = $(window).width();
 
         // Debug element
-        //document.getElementById("fW").innerHTML = width;
+        //console.log("Flickr gallery width:>" + width);
 
         if (width <= 630) return sixthirty
         else if (width <= 767) return sevensixtyseven
@@ -1768,8 +1765,9 @@ flickrgallery = {
         $.getJSON(flickrURL, function (data) {
             $.each(data.items, function (i, item) {
                 // _m = medium img, _b = large; remove the replace function if you want the standard small images
-                $("<img/>").attr("src", item.media.m.replace("_m", "_z"))
-                    .attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
+                //$("<img/>").attr("src", item.media.m.replace("_m", "_z"))
+                $("<img/>").attr("src", item.media.m)
+                    //.attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
                     .appendTo("#flickrgallery")
                     .wrap("<li><a href='" + item.link + "' target='_blank'></a></li>");
             });
@@ -1869,11 +1867,31 @@ etsyslider = {
             }
         };
 
-        // Debug statement
-        //var width = $(window).width();
-        //document.getElementById("eW").innerHTML = width;
+        var sixohtwo = {
+            mode: 'fade',
+            captions: true,
+            slideWidth: 480,
+            pager: false,
+            adaptiveHeight: true,
+            preloadImages: 'all',
+            startSlide: start,
+            onSlideAfter: function ($es, oldIndex, newIndex) {
+                var offset = newIndex + 1;
+                if (offset == etsyslider.count) {
+                    etsyslider.getdata(etsyslider.chunk, offset);
+                }
+            }
+        };
 
-        return max;
+
+
+        // Debug statement
+        var width = $(window).width();
+        console.log("Etsy width:>" + width);
+
+        if (width <= 602) return sixohtwo
+        else return max;
+
     },
 
     init: function () {
@@ -1912,7 +1930,7 @@ $(window).load(function () {
     // Add resize event
     $(window).resize(function () {
         fg.reloadSlider(flickrgallery.config())
-        //es.reloadSlider(etsyslider.config())
+        es.reloadSlider(etsyslider.config())
     });
 
 });

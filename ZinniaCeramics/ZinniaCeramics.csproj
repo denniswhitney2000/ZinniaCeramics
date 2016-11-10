@@ -26,6 +26,7 @@
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="img\bg-image.gif" />
+    <Content Include="img\bgimage2.gif" />
     <Content Include="img\home-bg-small.jpg" />
     <Content Include="img\home-bg.jpg" />
     <Content Include="img\icons\browserconfig.xml" />
@@ -52,6 +53,12 @@
     <Content Include="img\icons\faviconit-instructions.txt" />
     <Content Include="img\logo.gif" />
     <Content Include="img\logo.png" />
+    <Content Include="img\png\arrow-down.png" />
+    <Content Include="img\png\contact-email.png" />
+    <Content Include="img\png\contact-location.png" />
+    <Content Include="img\png\contact-phone.png" />
+    <Content Include="img\png\menu-trigger.png" />
+    <Content Include="img\png\telephone-small.png" />
     <Content Include="img\services1.jpg" />
     <Content Include="img\services2.jpg" />
     <Content Include="img\socialicons.png" />
