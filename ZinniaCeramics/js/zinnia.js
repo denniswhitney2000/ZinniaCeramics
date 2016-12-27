@@ -1681,7 +1681,6 @@ locations = {
         }
 
         $('a.location').hover(locations.on, locations.off),
-
         $('a.location').click(function (a) {
             event.preventDefault(a)
         })
@@ -1700,10 +1699,6 @@ locations = {
     on: function () {
         $('.overlay').toggleClass('fade');
         $('.overlay').parent().toggleClass('fade-parent');
-
-        // Hide the other locations
-        //var id = $(this).parent().attr("id");
-        //locations.styler(id, 'opacity', '0.1');
 
         // Get the current map for display
         var loc = $(this).parent().attr("data-latlon").split(",");
@@ -1886,11 +1881,9 @@ etsyslider = {
             }
         };
 
-
-
-        // Debug statement
         var width = $(window).width();
-        console.log("Etsy width:>" + width);
+        // Debug statement
+        //console.log("Etsy width:>" + width);
 
         if (width <= 602) return sixohtwo
         else return max;
