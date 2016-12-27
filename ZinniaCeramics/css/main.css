@@ -188,10 +188,10 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #imprints .imprints-content #fgwrapper { height:200px }
 #imprints .imprints-content #fgwrapper img { height:180px }
 #imprints .imprints-content .hideme { visibility:hidden }
-#imprints .imprints-content .price { float:right; }
+#imprints .imprints-content .price { float:right; margin-right: 10px;}
 #imprints .imprints-content .col { float:left; width:300px; }
 #imprints .imprints-content .col.alpha { float:left; padding-right:20px; width:50%; }
-#imprints .imprints-content .col.omega { float:left; width:50%; }
+#imprints .imprints-content .col.omega { float:left; padding-left:20px; width:50%; }
 #imprints .imprints-content .col p { text-align:left; padding-bottom:20px; }
 #imprints .imprints-sprite { position:absolute; z-index:1; font-family:Papyrus,fantasy; font-size:16px; font-style:normal; font-variant:normal; font-weight:500; line-height:20px; }
 #imprints .imprints-sprite.one { top:15%; left:3%; width:150px; }
@@ -264,19 +264,6 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 @media only screen and (max-width: 1024px) {
     nav .nav-wrap { width:100%; }
     #intro { background-attachment:scroll; }
-
-
-    /*
-    #shop .columns .col.image { overflow:hidden; }
-    #shop .columns .col.image .flex-wrap { position:relative; width:150%; }
-    #shop .columns .col.image .flex-wrap .no-mob { display:none; }
-    #shop .columns .col.left { float:left; }
-    #shop .columns .col.left.image { padding-right:0; }
-    #shop .columns .col.left.content { padding:30px 60px 30px 40px; }
-    #shop .columns .col.right { float:right; }
-    #shop .columns .col.right.image { padding-left:0; }
-    #shop .columns .col.right.content { padding:30px 40px 30px 60px; }
-    */
 }
 
 @media only screen and (max-width: 720px) {
@@ -313,15 +300,26 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
     #about .about-content .col.omega { padding:0 0 0 0; }
     #about .about-sprite { display:none; }
 
-
     #imprints .imprints-content { padding:45px 20px; margin:0; width:100%; }
     #imprints .imprints-content h3 { padding:20px 0 20px 0; width:100%; font-size:18px; font-weight:bold }
     #imprints .imprints-content .col { width:100%; }
     #imprints .imprints-content .col p { text-align:center; }
+
+/*
     #imprints .imprints-content .col.alpha { padding:10px 0 0 0; width:100%; display: -webkit-flex; display: flex }
     #imprints .imprints-content .col.alpha .left { width:35% }
     #imprints .imprints-content .col.alpha .middle { width:33% }
     #imprints .imprints-content .col.alpha .right { width:30% }
+*/
+
+    #imprints .imprints-content .col.alpha { float:none; padding-right:0px; width:100%; }
+
+    #imprints .imprints-content .col.alpha .left { width:50% }
+    #imprints .imprints-content .col.alpha .middle { width:50% }
+    #imprints .imprints-content .col.alpha .right { width:50% }
+
+
+
     #imprints .imprints-content .col.alpha li { margin:auto 10px auto 25px; width:90%; }
     #imprints .imprints-content .col.alpha .middle li { padding-left:30px }
     #imprints .imprints-content .col.omega { padding:0 0 0 0; width:100% }
@@ -353,4 +351,19 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
     /* #contact .contact-buttons { width:100%; } */
     #contact .contact-buttons ul li { float:none; width:100% !important; }
     #contact .contact-buttons ul li a { background-size:100%; /* width:100px; height:100px; */ width:76px; height:76px; }
+}
+
+
+@media only screen and (max-width: 630px) {
+
+    #imprints .imprints-content .col.alpha .left { width:100%; }
+    #imprints .imprints-content .col.alpha .middle { width:100%; }
+    #imprints .imprints-content .col.alpha .middle li { padding-left:0px; }
+    #imprints .imprints-content .col.alpha .right { width:100%; }
+
+/*
+    #imprints .imprints-content .col.alpha #left { float: left; width: 90%; }
+    #imprints .imprints-content .col.alpha #middle { float: left; width: 90%; }
+    #imprints .imprints-content .col.alpha #right { float: left; width: 90%; }
+*/
 }

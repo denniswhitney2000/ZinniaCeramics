@@ -23,6 +23,7 @@ grunticon([data_svg_url,
 data_png_url,
 data_fallback_url]),
 
+/*
 !function (a) {
     var b = 'data-ab-color',
     c = 'data-ab-parent',
@@ -153,6 +154,8 @@ data_fallback_url]),
         }
     }
 }(jQuery),
+
+*/
 
 function (a) {
     function b(a) {
@@ -385,6 +388,7 @@ function (a, b) {
         b.location.hash && b.scrollTo(0, 0)
     })
 }(document, window),
+
 function (a, b, c) {
     'use strict';
     function d(c) {
@@ -1104,6 +1108,7 @@ function (a, b, c) {
     Sb = [
     ]
 }(window, document),
+
 function () {
     var a = [
     ].indexOf || function (a) {
@@ -1534,8 +1539,6 @@ function () {
         })
     })
 }.call(this);
-
-
 
 
 var fullpageintro = {
