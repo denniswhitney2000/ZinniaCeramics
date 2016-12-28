@@ -218,7 +218,7 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #location .location-buttons { position:relative; width:100%; }
 #location .location-buttons h2 { padding-bottom:30px; }
 #location .location-buttons ul li { padding:25px 0; width:20%; float:left; text-align:center; }
-#location .location-buttons ul li p { -moz-transition:opacity 200ms ease-in-out; -o-transition:opacity 200ms ease-in-out; -webkit-transition:opacity 200ms ease-in-out; transition:opacity 200ms ease-in-out; color:#000; font-size:14px; }
+#location .location-buttons ul li p { -moz-transition:opacity 200ms ease-in-out; -o-transition:opacity 200ms ease-in-out; -webkit-transition:opacity 200ms ease-in-out; transition:opacity 200ms ease-in-out; color:#000; font-size:12px; }
 #location .location-buttons ul li a.location-button { display:block; margin:0 auto 20px auto; width:100px; height:100px; -moz-transition:opacity 200ms ease-in-out; -o-transition:opacity 200ms ease-in-out; -webkit-transition:opacity 200ms ease-in-out; transition:opacity 200ms ease-in-out; text-align:center; }
 #location .location-buttons ul li a.location-button span { background-position:center; display:block; width:100%; height:100%; }
 #location .mailto { text-decoration:none; color:#000; }
@@ -228,6 +228,9 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #location.fade-parent .contact-form * { opacity:0.1; }
 #location.fade-parent .location-buttons a { opacity:0.1; }
 #location.fade-parent .location-buttons p { opacity:0.1 !important; }
+
+#location a.address { text-decoration: none; }
+
 #location.fade-parent .location,#location.fade-parent .location-buttons .location p { opacity:1 !important; }
 #location #map-canvas { position:absolute; top:0; right:0; bottom:0; left:0; }
 #location #locationsort { width:100%; padding: 25px; text-align: center; position:absolute; bottom:0; color:blue; text-decoration:underline; cursor:pointer; }
@@ -324,10 +327,9 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
     #contact { padding:45px 0px; }
     #contact .contact-buttons ul.methods li { margin:10px 0; width:50%; float:left; text-align:center; }
     #contact .contact-buttons ul.social li { margin:10px 0; width:20%; float:left; text-align:center; }
-/*
-    #contact .contact-buttons ul li { float:none; width:100% !important; }
-    #contact .contact-buttons ul li a { background-size:100%; width:100px; height:100px; width:76px; height:76px; }
-*/
+
+    #location .icon-contact-location { zoom: 75%; -moz-transform: scale(.75); }
+
 }
 
 
@@ -344,9 +346,13 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
     #contact .sprite-instagram { zoom: 50%; -moz-transform: scale(.5); }
     #contact .sprite-twitter { zoom: 50%; -moz-transform: scale(.5); }
 
+    #location .address { display:none; }
+    #location .shop-phone { display:block; font-size:75% }
+
 }
 
 @media only screen and (max-width: 450px) {
     .bx-wrapper .bx-caption { display:none; }
+    #location .icon-contact-location { zoom: 50%; -moz-transform: scale(.5); }
 }
 

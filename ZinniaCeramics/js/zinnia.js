@@ -1671,6 +1671,13 @@ locations = {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var b = new google.maps.Map(document.getElementById('map-canvas'), a)
+
+
+        var marker = new google.maps.Marker({
+            position: a.center,
+            map: b
+        });
+
     },
 
     init: function () {
