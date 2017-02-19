@@ -1769,10 +1769,7 @@ flickrgallery = {
         $('#flickrgallery').empty();
         $.getJSON(flickrURL, function (data) {
             $.each(data.items, function (i, item) {
-                // _m = medium img, _b = large; remove the replace function if you want the standard small images
-                //$("<img/>").attr("src", item.media.m.replace("_m", "_z"))
                 $("<img/>").attr("src", item.media.m)
-                    //.attr("title", "<div class='flickrtitle'>" + item.title + "</div>")
                     .appendTo("#flickrgallery")
                     .wrap("<li><a href='" + item.link + "' target='_blank'></a></li>");
             });

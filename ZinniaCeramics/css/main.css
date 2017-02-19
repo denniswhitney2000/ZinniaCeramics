@@ -161,7 +161,7 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #intro .scroll-down-indicator { display:none; margin:0 0 0 -3px; position:absolute; bottom:10px; left:50%; width:4px; }
 #intro .scroll-down-indicator span { -moz-border-radius:50% / 50%; -webkit-border-radius:50% 50%; border-radius:50% / 50%; background-color:#FFF; display:block; margin:0 0 6px 0; opacity:0; width:6px; height:6px; }
 
-#about { background:#FFF /* url("../img/about-bg.jpg") no-repeat center center */; text-align:center; overflow:hidden;  }
+#about { background:#FFF; /* url("../img/about-bg.jpg") no-repeat center center ; text-align:center;*/ overflow:hidden;  }
 #about:before { content:''; display:inline-block; height:100%; vertical-align:middle; }
 #about .about-content { margin:100px auto; width:600px; position:relative; z-index:2; }
 #about .about-content h3 { margin:0 auto; width:540px; }
@@ -176,7 +176,7 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 
 #imprints { background:#5FC7C5; text-align:center; overflow:hidden; }
 #imprints:before { content:''; display:inline-block; height:100%; vertical-align:middle; }
-#imprints .imprints-content { margin:70px auto; width:600px; position:relative; z-index:2; }
+#imprints .imprints-content { margin:50px auto; width:600px; position:relative; z-index:2; }
 #imprints .imprints-content h2 { padding-bottom:30px; }
 #imprints .imprints-content h3 { margin:0 auto; width:100%; }
 #imprints .imprints-content h4 { margin:0 auto; width:100%; display:inline-block }
@@ -193,14 +193,14 @@ nav .menu-trigger { background-color:#000; display:none; position:absolute; top:
 #imprints .imprints-content .col.alpha { float:left; padding-right:20px; width:50%; }
 #imprints .imprints-content .col.omega { float:left; padding-left:20px; width:50%; }
 #imprints .imprints-content .col p { text-align:left; padding-bottom:20px; }
-#imprints .imprints-sprite { position:absolute; z-index:1; font-family:Papyrus,fantasy; font-size:16px; font-style:normal; font-variant:normal; font-weight:500; line-height:20px; }
+#imprints .imprints-sprite { position:absolute; z-index:1; font-style:italic; font-variant:normal; font-weight:500; line-height:20px; }
 #imprints .imprints-sprite.one { top:15%; left:3%; width:150px; }
 #imprints .imprints-sprite.two { top:50%; left:3%; width:150px; }
 #imprints .imprints-sprite.three { bottom:15%; left:3%; width:150px; }
 
 #shop { background:#FFF; padding:50px 0 auto auto; text-align:center; }
 #shop:before { content:''; display:inline-block; height:100%; vertical-align:middle; }
-#shop .shop-content { margin:70px auto; width:600px; height:600px; position:relative; z-index:2; }
+#shop .shop-content { margin:50px auto; width:600px; height:600px; position:relative; z-index:2; }
 #shop .shop-content h2 { padding-bottom:30px; }
 #shop .shop-content h3 { margin:0 auto; padding-top:40px; width:550px; font-weight: bold;}
 #shop .shop-content p { margin-top:30px; margin-bottom:30px;  }
