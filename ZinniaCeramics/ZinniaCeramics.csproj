@@ -25,6 +25,12 @@
     <Content Include="css\jquery.bxslider.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
+    <Content Include="img\about1.png" />
+    <Content Include="img\about2.png" />
+    <Content Include="img\about3.gif" />
+    <Content Include="img\about4.gif" />
+    <Content Include="img\about4.png" />
+    <Content Include="img\about5.png" />
     <Content Include="img\bg-image.gif" />
     <Content Include="img\bgimage2.gif" />
     <Content Include="img\home-bg-small.jpg" />
@@ -84,7 +90,9 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
-    <Content Include="whitneyworks.net.publishsettings" />
+    <Content Include="whitneyworks.net.publishsettings">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="whitneyworks.net - FTP.pubxml" />
     <None Include="whitneyworks.net - Web Deploy.pubxml" />
   </ItemGroup>
@@ -118,6 +126,8 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <DeployEncryptKey>Rubb3Rd%40cky</DeployEncryptKey>
+    <PublishDatabases>false</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
