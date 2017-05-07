@@ -90,11 +90,6 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
-    <Content Include="whitneyworks.net.publishsettings">
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="whitneyworks.net - FTP.pubxml" />
-    <None Include="whitneyworks.net - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
