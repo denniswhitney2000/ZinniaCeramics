@@ -1,12 +1,15 @@
 # ZinniaCeramics
+
 The home for the Zinnia Ceramics project.
 
 # Referenced code
+
 - http://bxslider.com
 - http://jquery.com
 - http://spritegen.website-performance.org/
  
-# Flickr Image size table:
+## Flickr Image size table:
+
 - Square:> width="75" height="75" _s
 - Large Square:> width="150" height="150" _q
 - Thumbnail:> width="100" height="75" _t
@@ -18,11 +21,6 @@ The home for the Zinnia Ceramics project.
 - Large:> width="1024" height="768" _b
 - Original:> width="2400" height="1800" _o
 
-# Google Static Map API information
-YOUR API KEY: AIzaSyDe1shbkfcD-_63ebIRd8rvdAIuthZFNys
+## li columns display
 
-# Google Maps JavaScript API!
-YOUR API KEY: AIzaSyCvXkK7zEDCCDvBSzK5n3eqWdPvHYkhvDQ 
-
-# li columns display
 http://stackoverflow.com/questions/14745297/how-to-display-an-unordered-list-in-two-columns
