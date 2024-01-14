@@ -1788,7 +1788,7 @@ flickrgallery = {
 
 etsyslider = {
 
-    api_key: '9eagsiapj818mhonlg3nr032',
+    api_key: '<put real key here>',
 
     offset: 0,
 
@@ -1798,7 +1798,7 @@ etsyslider = {
 
     count: 0,
 
-    url: "https://openapi.etsy.com/v2/shops/zinniadesignstc/listings/active.js",
+    url: "https://openapi.etsy.com/v2/shops/<your shop name>/listings/active.js",
 
     query: "includes=Images(url_170x135,url_570xN)&fields=listing_id,title,price,description,url",
 
